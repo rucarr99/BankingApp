@@ -14,6 +14,10 @@ namespace BankingApp.DataModel.Models
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public double WithdrawalPercentageRate { get; set; }
+        public double DepositPercentageRate { get; set; }
+        public double WithdrawalFixedRate { get; set; }
+        public double DepositFixedRate { get; set; }
 
         public virtual ICollection<Account> Accounts { get; set; }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 #nullable disable
 
@@ -11,6 +12,7 @@ namespace BankingApp.DataModel.Models
         public int TransactionType { get; set; }
         public string Description { get; set; }
         public DateTime Date { get; set; }
+        public string DestinationAccount { get; set; }
 
         public virtual Account IdAccountNavigation { get; set; }
     }

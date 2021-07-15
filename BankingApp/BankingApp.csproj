@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BankingApp.DAL.Abstractions\BankingApp.DAL.Abstractions.csproj" />
+    <ProjectReference Include="..\BankingApp.DAL\BankingApp.DAL.csproj" />
     <ProjectReference Include="..\BankingApp.DataModel\BankingApp.DataModel.csproj" />
     <ProjectReference Include="..\ConsoleMenuComponent\ConsoleMenuComponent.csproj" />
   </ItemGroup>
