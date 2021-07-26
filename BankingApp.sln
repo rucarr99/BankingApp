@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleMenuComponent", "Con
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingApp.DataModel", "BankingApp.DataModel\BankingApp.DataModel.csproj", "{49EC2945-5CBA-4B7B-AC74-F3B955E907E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingApp.DAL", "BankingApp.DAL\BankingApp.DAL.csproj", "{62F26A57-0E7D-4C38-9ECF-57FEF545DC97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingApp.DAL", "BankingApp.DAL\BankingApp.DAL.csproj", "{62F26A57-0E7D-4C38-9ECF-57FEF545DC97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingApp.DAL.Abstractions", "BankingApp.DAL.Abstractions\BankingApp.DAL.Abstractions.csproj", "{D8A7C024-E8FE-4EDC-BFC0-13F5D9801F4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingApp.DAL.Abstractions", "BankingApp.DAL.Abstractions\BankingApp.DAL.Abstractions.csproj", "{D8A7C024-E8FE-4EDC-BFC0-13F5D9801F4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{37F317F9-E919-4026-9B55-CDD2DC1FEEAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,13 +34,15 @@ Global
 		{49EC2945-5CBA-4B7B-AC74-F3B955E907E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49EC2945-5CBA-4B7B-AC74-F3B955E907E8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{62F26A57-0E7D-4C38-9ECF-57FEF545DC97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62F26A57-0E7D-4C38-9ECF-57FEF545DC97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62F26A57-0E7D-4C38-9ECF-57FEF545DC97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62F26A57-0E7D-4C38-9ECF-57FEF545DC97}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D8A7C024-E8FE-4EDC-BFC0-13F5D9801F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D8A7C024-E8FE-4EDC-BFC0-13F5D9801F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8A7C024-E8FE-4EDC-BFC0-13F5D9801F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8A7C024-E8FE-4EDC-BFC0-13F5D9801F4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37F317F9-E919-4026-9B55-CDD2DC1FEEAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37F317F9-E919-4026-9B55-CDD2DC1FEEAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37F317F9-E919-4026-9B55-CDD2DC1FEEAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37F317F9-E919-4026-9B55-CDD2DC1FEEAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

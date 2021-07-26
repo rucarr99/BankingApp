@@ -6,15 +6,16 @@ namespace BankingApp
     {
         static void Main(string[] args)
         {
+
             var app = new BankingAppMenu();
             try
             {
-                app.LoginScreen();
+                app.LogInScreen();
                 app.Run();
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Oops, something went wrong: {e.Message}");
+                Console.WriteLine($"Oops, something went wrong: {e.InnerException?.Message}");
             }
         }
     }
