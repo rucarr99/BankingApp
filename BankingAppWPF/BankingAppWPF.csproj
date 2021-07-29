@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,10 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BankingApp.DAL.Abstractions\BankingApp.DAL.Abstractions.csproj" />
     <ProjectReference Include="..\BankingApp.DAL\BankingApp.DAL.csproj" />
     <ProjectReference Include="..\BankingApp.DataModel\BankingApp.DataModel.csproj" />
-    <ProjectReference Include="..\ConsoleMenuComponent\ConsoleMenuComponent.csproj" />
     <ProjectReference Include="..\Services\Services.csproj" />
   </ItemGroup>
 

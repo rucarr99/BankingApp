@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingApp.DAL", "BankingAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingApp.DAL.Abstractions", "BankingApp.DAL.Abstractions\BankingApp.DAL.Abstractions.csproj", "{D8A7C024-E8FE-4EDC-BFC0-13F5D9801F4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{37F317F9-E919-4026-9B55-CDD2DC1FEEAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{37F317F9-E919-4026-9B55-CDD2DC1FEEAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingAppWPF", "BankingAppWPF\BankingAppWPF.csproj", "{DC650CD5-1A70-4E38-B64D-48EB0C11F0C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{37F317F9-E919-4026-9B55-CDD2DC1FEEAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37F317F9-E919-4026-9B55-CDD2DC1FEEAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37F317F9-E919-4026-9B55-CDD2DC1FEEAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC650CD5-1A70-4E38-B64D-48EB0C11F0C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC650CD5-1A70-4E38-B64D-48EB0C11F0C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC650CD5-1A70-4E38-B64D-48EB0C11F0C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC650CD5-1A70-4E38-B64D-48EB0C11F0C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

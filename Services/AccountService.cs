@@ -35,6 +35,18 @@ namespace Services
             
         }
 
+        public Account GetAccountByIban(string iban)
+        {
+            Expression<Func<Account, bool>> expression = a => a.Iban == iban;
+            var customer = RepositoryWrapper.AccountRepository.FindByCondition(expression).FirstOrDefault();
+            if (customer != null)
+            {
+                return customer;
+            }
+
+            throw new AccountNotFoundException("Account not found, please enter the IBan again");
+        }
+
         public ReadOnlyCollection<Account> GetCustomerAccounts(Customer customer)
         {
             Expression<Func<Account, bool>> expression = a => a.ClientId == customer.Id;
@@ -51,6 +63,22 @@ namespace Services
             throw new AccountClosedException("Account closed", account);
         }
 
+        public void TransferMoney(Account fromAccount, Account toAccount, double amount)
+        {
+            if (fromAccount.Status)
+            {
+                fromAccount.Balance -= amount;
+                toAccount.Balance += amount;
+                UpdateAccountBalance(fromAccount);
+                UpdateAccountBalance(toAccount);
+                Save();
+            }
+            else
+            {
+                throw new AccountClosedException("Account closed", fromAccount);
+            }
+            //more logic that I don't know
+        }
         public double Deposit(double amount, Account account)
         {
             if (account.Status)
@@ -59,7 +87,7 @@ namespace Services
                 account.Balance += (amount - (accountType.DepositFixedRate + 
                                               accountType.DepositPercentageRate / 100 * amount));
                 UpdateAccountBalance(account);
-                Save(); 
+                Save();
                 return account.Balance;
             }
 

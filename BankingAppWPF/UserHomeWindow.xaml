@@ -1,0 +1,72 @@
+﻿<Window x:Class="BankingAppWPF.UserHomeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BankingAppWPF"
+        xmlns:customControls="clr-namespace:BankingAppWPF.CustomControls"
+        mc:Ignorable="d"
+        Title="UserHomeWindow" Height="700" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.30*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Background="#005691">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="My Bank" Style="{StaticResource TitleStyle}"></TextBlock>
+            <StackPanel Grid.Row="1">
+                <Button x:Name="TransactionsBtn" Content="My transactions" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="TransactionsBtn_OnClick"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+                <Button x:Name="HelpBtn" Content="Help" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="HelpBtn_OnClick"/>
+                <Button x:Name="LogoutBtn" Content="Logout" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="LogoutBtn_OnClick"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" Background="#e8f1f5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.27*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="My Accounts" Style="{StaticResource TitleStyle}" Foreground="Black" FontSize="40"></TextBlock>
+            <StackPanel Grid.Row="1">
+                <ScrollViewer x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto">
+                    <StackPanel VerticalAlignment="Top" >
+                        <ListView x:Name="AccountsView">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_MouseLeftButtonDown" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Expander Background="#e8f1f5" Width="700">
+                                        <Expander.Header>
+                                            <customControls:AccountControl Account ="{Binding}"/>
+                                        </Expander.Header>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+                                            <Button Content="Deposit" Style="{StaticResource OptionsBtn}"  Background="#70416d" Click="ButtonDeposit_OnClick"/>
+                                            <Button Content="Withdraw" Style="{StaticResource OptionsBtn}"  Background="#420000" Click="ButtonWithdraw_OnClick"/>
+                                            <Button Content="Transfer" Style="{StaticResource OptionsBtn}"  Background="#a2c8a2" Click="ButtonTransfer_OnClick"/>
+                                        </StackPanel>
+                                    </Expander>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+                </ScrollViewer>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

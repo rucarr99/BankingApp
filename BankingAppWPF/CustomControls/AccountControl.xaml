@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="BankingAppWPF.CustomControls.AccountControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="80" d:DesignWidth="500">
+    <Border BorderBrush="#27496d" BorderThickness="2">
+        <Grid Background="#e8f1f5" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.9*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="1" x:Name="Iban"
+                           Text="IBan" FontSize="20"
+                           FontWeight="Bold"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" x:Name="Balance"
+                           Text="Balance" FontSize="15"
+                           Foreground="Black"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" x:Name="Currency"
+                           Text="Currency" FontSize="10"
+                           Foreground="Black"/>
+
+            <Label Grid.Row="0" Grid.Column="0" FontSize="20" FontWeight="Bold" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center">IBan</Label>
+            <Label Grid.Row="1" Grid.Column="0" FontSize="13"  Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center">Balance</Label>
+            <Label Grid.Row="2" Grid.Column="0" FontSize="8" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black">Currency</Label>
+        </Grid>
+    </Border>
+</UserControl>
