@@ -10,7 +10,7 @@ namespace BankingApp.DAL
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
 
-        protected BankContext BankContext { get; set; }
+        public BankContext BankContext { get; set; }
 
         protected RepositoryBase(BankContext bankContext)
         {

@@ -63,7 +63,7 @@
             </Style>
 
             <Style TargetType="Button" BasedOn="{StaticResource PrimaryActionBtn}" x:Key="OptionsBtn">
-                <Setter Property="Width" Value="90"/>
+                <Setter Property="Width" Value="110"/>
                 <Setter Property="Height" Value="30"/>
                 <Setter Property="HorizontalAlignment" Value="Center"/>
             </Style>

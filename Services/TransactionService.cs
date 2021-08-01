@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using BankingApp.DAL.Abstractions;
@@ -13,10 +14,23 @@ namespace Services
         {
         }
 
-        public IQueryable ViewTransactionsFor(Account account)
+        public IReadOnlyCollection<Transaction> ViewTransactionsFor(Account account)
         {
             Expression<Func<Transaction, bool>> expression = t => t.IdAccount == account.Id;
-            return RepositoryWrapper.TransactionRepository.FindByCondition(expression);
+            return RepositoryWrapper.TransactionRepository.FindByCondition(expression).ToList().AsReadOnly();
+        }
+
+        public IReadOnlyCollection<Transaction> ViewTransactionsFor(Customer customer)
+        {
+            var transactions = RepositoryWrapper.CustomerRepository.FindAll().Join(
+                RepositoryWrapper.AccountRepository.FindAll()
+                , c => customer.Id, a => a.ClientId, (c, a) => new { c, a })
+                .Join(RepositoryWrapper.TransactionRepository.FindAll(), a => a.a.Id, transaction => transaction.IdAccount,  (a, transaction) => new {transaction}).Distinct().ToList();
+
+            var list = transactions.Select(i => i.transaction).ToList().AsReadOnly();
+
+
+            return list;
         }
 
         private void RecordTransaction(Transaction newTransaction)

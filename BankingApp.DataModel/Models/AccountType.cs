@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using BankingApp.DataModel.Enums;
 
 #nullable disable
 
@@ -12,7 +13,7 @@ namespace BankingApp.DataModel.Models
             Accounts = new HashSet<Account>();
         }
 
-        public int Id { get; set; }
+        public AccountTypes Id { get; set; }
         public string Name { get; set; }
         public double WithdrawalPercentageRate { get; set; }
         public double DepositPercentageRate { get; set; }

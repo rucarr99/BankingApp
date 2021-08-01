@@ -28,7 +28,9 @@ namespace BankingAppWPF
 
         private void TransactionsBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var transactionWindow = new CustomerTransactionWindow(_customer);
+            transactionWindow.Show();
+            Close();
         }
 
         private void HelpBtn_OnClick(object sender, RoutedEventArgs e)
@@ -66,6 +68,7 @@ namespace BankingAppWPF
         {
             if ((sender as Window)?.DialogResult == true)
             {
+                AccountsView.ItemsSource = null;
                 AccountsView.ItemsSource = _customerService.GetAccounts(_customer).ToList();
             }
         }
@@ -86,6 +89,15 @@ namespace BankingAppWPF
             transferWindow.Closed += Window_Closed;
             transferWindow.ShowDialog();
             AccountsView.Items.Refresh();
+        }
+
+        private void ButtonTransactions_OnClick(object sender, RoutedEventArgs e)
+        {
+            var selectedAccount = AccountsView.SelectedItem as Account;
+            var transactionsWindow = new CustomerTransactionWindow(selectedAccount, _customer);
+            transactionsWindow.Show();
+            Close();
+            
         }
     }
 }

@@ -33,7 +33,7 @@ namespace ConsoleMenuComponent
             Console.WriteLine("Please enter your option");
         }
 
-        private int ReadCurrentOption()
+        private static int ReadCurrentOption()
         {
             var currentKey = Console.ReadKey();
             var keyCode = currentKey.KeyChar - '0';

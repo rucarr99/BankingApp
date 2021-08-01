@@ -1,4 +1,4 @@
-﻿<Window x:Class="BankingAppWPF.UserHomeWindow"
+﻿<Window x:Class="BankingAppWPF.AdminAccountsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BankingAppWPF"
         xmlns:customControls="clr-namespace:BankingAppWPF.CustomControls"
         mc:Ignorable="d"
-        Title="UserHomeWindow" Height="700" Width="1000">
+        Title="AdminAccountsWindow" Height="700" Width="1000">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.30*"/>
@@ -21,9 +21,12 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="My Bank" Style="{StaticResource TitleStyle}"></TextBlock>
             <StackPanel Grid.Row="1">
-                <Button x:Name="TransactionsBtn" Content="My transactions" 
+                <Button x:Name="OpenAccountBtn" Content="Open new account" 
                         Style="{StaticResource OptionAdminBtnStyle}" 
-                        Click="TransactionsBtn_OnClick"/>
+                        Click="OpenAccountBtn_OnClick"/>
+                <Button x:Name="SeeCustomers" Content="See clients" 
+                        Style="{StaticResource OptionAdminBtnStyle}" 
+                        Click="SeeCustomers_OnClick"/>
             </StackPanel>
             <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
                 <Button x:Name="HelpBtn" Content="Help" 
@@ -39,7 +42,7 @@
                 <RowDefinition Height="0.27*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="My Accounts" Style="{StaticResource TitleStyle}" Foreground="Black" FontSize="40"></TextBlock>
+            <TextBlock x:Name="CustomerNameText" Grid.Row="0"  Style="{StaticResource TitleStyle}" Foreground="Black" FontSize="40"></TextBlock>
             <ScrollViewer Grid.Row="1" x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto">
                 <StackPanel>
                     <StackPanel VerticalAlignment="Top" >
@@ -56,10 +59,8 @@
                                             <customControls:AccountControl Account ="{Binding}"/>
                                         </Expander.Header>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
-                                            <Button Content="Deposit" Style="{StaticResource OptionsBtn}"  Background="#70416d" Click="ButtonDeposit_OnClick"/>
-                                            <Button Content="Withdraw" Style="{StaticResource OptionsBtn}"  Background="#420000" Click="ButtonWithdraw_OnClick"/>
-                                            <Button Content="Transfer" Style="{StaticResource OptionsBtn}"  Background="#a2c8a2" Click="ButtonTransfer_OnClick"/>
-                                            <Button Content="Transactions" Style="{StaticResource OptionsBtn}"  Background="#24CB4B" Click="ButtonTransactions_OnClick"/>
+                                            <Button Content="Close" x:Name="CloseBtn" Style="{StaticResource OptionsBtn}"  Background="#70416d" Click="CloseBtn_OnClick"/>
+                                            <Button Content="Transactions" Style="{StaticResource OptionsBtn}"  Background="#420000" Click="TransactionBtn_OnClick"/>
                                         </StackPanel>
                                     </Expander>
                                 </DataTemplate>

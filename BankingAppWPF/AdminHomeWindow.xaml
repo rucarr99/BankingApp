@@ -1,5 +1,5 @@
-﻿<Window x:Class="BankingAppWPF.UserHomeWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window x:Class="BankingAppWPF.AdminHomeWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -19,11 +19,10 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            <StackPanel Grid.Row="1">
+            </StackPanel>
             <TextBlock Grid.Row="0" Text="My Bank" Style="{StaticResource TitleStyle}"></TextBlock>
             <StackPanel Grid.Row="1">
-                <Button x:Name="TransactionsBtn" Content="My transactions" 
-                        Style="{StaticResource OptionAdminBtnStyle}" 
-                        Click="TransactionsBtn_OnClick"/>
             </StackPanel>
             <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
                 <Button x:Name="HelpBtn" Content="Help" 
@@ -39,11 +38,11 @@
                 <RowDefinition Height="0.27*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="My Accounts" Style="{StaticResource TitleStyle}" Foreground="Black" FontSize="40"></TextBlock>
+            <TextBlock Grid.Row="0" Text="Customers" Style="{StaticResource TitleStyle}" Foreground="Black" FontSize="40"></TextBlock>
             <ScrollViewer Grid.Row="1" x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto">
-                <StackPanel>
+                <StackPanel Grid.Row="1">
                     <StackPanel VerticalAlignment="Top" >
-                        <ListView x:Name="AccountsView">
+                        <ListView x:Name="CustomerView">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="ListViewItem">
                                     <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_MouseLeftButtonDown" />
@@ -51,17 +50,9 @@
                             </ListView.ItemContainerStyle>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <Expander Background="#e8f1f5" Width="700">
-                                        <Expander.Header>
-                                            <customControls:AccountControl Account ="{Binding}"/>
-                                        </Expander.Header>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
-                                            <Button Content="Deposit" Style="{StaticResource OptionsBtn}"  Background="#70416d" Click="ButtonDeposit_OnClick"/>
-                                            <Button Content="Withdraw" Style="{StaticResource OptionsBtn}"  Background="#420000" Click="ButtonWithdraw_OnClick"/>
-                                            <Button Content="Transfer" Style="{StaticResource OptionsBtn}"  Background="#a2c8a2" Click="ButtonTransfer_OnClick"/>
-                                            <Button Content="Transactions" Style="{StaticResource OptionsBtn}"  Background="#24CB4B" Click="ButtonTransactions_OnClick"/>
-                                        </StackPanel>
-                                    </Expander>
+                                    <Button Background="#e8f1f5" Foreground="#e8f1f5" BorderBrush="#e8f1f5" Width="600" Height="200" Click="ButtonBase_OnClick">
+                                        <customControls:ClientControl Customer="{Binding}"  Width="600" Height="200"  />
+                                    </Button>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>

@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DocX" Version="1.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BankingApp.DataModel\BankingApp.DataModel.csproj" />
   </ItemGroup>
 

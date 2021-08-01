@@ -5,7 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DocX" Version="1.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BankingApp.DAL.Abstractions\BankingApp.DAL.Abstractions.csproj" />
+    <ProjectReference Include="..\BankingApp.DAL\BankingApp.DAL.csproj" />
   </ItemGroup>
 
 </Project>

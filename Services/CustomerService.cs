@@ -29,10 +29,17 @@ namespace Services
             throw new UserNotFoundException("CNP or PIN incorrect.");
         }
 
-        public IQueryable<Account> GetAccounts(Customer customer)
+        public IReadOnlyCollection<Account> GetAccounts(Customer customer)
         {
-            Expression<Func<Account, bool>> expression = account => account.Client == customer;
-            return RepositoryWrapper.AccountRepository.FindByCondition(expression);
+            Expression<Func<Account, bool>> expression = account => account.Client == customer && account.Status;
+            return RepositoryWrapper.AccountRepository.FindByCondition(expression).ToList().AsReadOnly();
+        }
+
+        public IReadOnlyCollection<Customer> GetCustomers()
+        {
+            Expression<Func<Customer, bool>> expression = customer => customer.IsAdmin == false;
+
+            return RepositoryWrapper.CustomerRepository.FindByCondition(expression).ToList().AsReadOnly();
         }
 
         public void ChangePin(Customer customer, string newPin)

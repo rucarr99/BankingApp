@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Xml.Schema;
+using BankingApp.DataModel.Enums;
 using Services.Exceptions;
 
 namespace Services
@@ -97,6 +98,29 @@ namespace Services
         private void UpdateAccountBalance(Account account)
         {
             RepositoryWrapper.AccountRepository.Update(account);
+        }
+
+        public void CloseAccount(Account account)
+        {
+            account.Status = false;
+            RepositoryWrapper.AccountRepository.Update(account);
+            Save();
+        }
+
+        public void CreateAccount(Customer customer, AccountTypes accountType, Currency currency, string IBan)
+        {
+            var accountToAdd = new Account()
+            {
+                Balance = 0,
+                ClientId = customer.Id,
+                Currency = currency,
+                Iban = IBan,
+                Type = accountType,
+                Status = true
+            };
+
+            RepositoryWrapper.AccountRepository.Create(accountToAdd);
+            Save();
         }
 
         public double Withdraw(Account account, double amount)

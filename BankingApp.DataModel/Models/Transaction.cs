@@ -10,7 +10,7 @@ namespace BankingApp.DataModel.Models
     {
         public int Id { get; set; }
         public int IdAccount { get; set; }
-        public TransactionTypes TransactionType { get; set; }
+        public TransactionTypes? TransactionType { get; set; }
         public string Description { get; set; }
         public DateTime? Date { get; set; }
         public string DestinationAccount { get; set; }

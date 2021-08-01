@@ -134,7 +134,7 @@ namespace BankingApp
                 Date = DateTime.Now,
                 DestinationAccount = null
             };
-            _transactionService.RecordTransaction(newTransaction);
+           // _transactionService.RecordTransaction(newTransaction);
         }
 
         private void Withdraw(Account account)
@@ -162,7 +162,7 @@ namespace BankingApp
                 Description = $"Withdraw {amount} {account.Currency}",
                 Date = DateTime.Now
             };
-            _transactionService.RecordTransaction(newTransaction);
+           // _transactionService.RecordTransaction(newTransaction);
         }
 
         private void CheckBalance(Account account)

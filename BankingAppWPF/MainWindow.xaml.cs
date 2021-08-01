@@ -37,7 +37,9 @@ namespace BankingAppWPF
                 var customer = _customerService.LogIn(cnp, pin);
                 if (customer.IsAdmin)
                 {
-                    MessageBox.Show("not done yet");
+                    var adminHome = new AdminHomeWindow(customer);
+                    adminHome.Show();
+                    Close();
                 }
                 else
                 {
